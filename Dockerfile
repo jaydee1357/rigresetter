@@ -1,4 +1,4 @@
-FROM alpine-python3
+FROM lsiobase/alpine.python:3.6
 
 RUN touch crontab.tmp \
     && mkdir /etc/rigresetter \
