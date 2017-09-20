@@ -1,7 +1,4 @@
-FROM alpine:latest
-
-RUN apk add --update python \
-    && rm -rf /var/cache/apk/*
+FROM alpine-python3
 
 RUN touch crontab.tmp \
     && mkdir /etc/rigresetter \
