@@ -1,15 +1,11 @@
+FROM alpine:latest
 
-FROM ubuntu:latest 
-MAINTAINER docker@jaydee 
+RUN apk add --update python \
+    && rm -rf /var/cache/apk/*
 
-# Add crontab file in the cron directory 
-ADD crontab /etc/cron.d/hello-cron   
+RUN touch crontab.tmp \
+    && echo '*/10 * * * * python /etc/rigresetter/rig-monitor.py' > crontab.tmp \
+    && crontab crontab.tmp \
+    && rm -rf crontab.tmp
 
-# Give execution rights on the cron job 
-RUN chmod 0644 /etc/cron.d/hello-cron   
-
-# Create the log file to be able to run tail 
-RUN touch /var/log/cron.log   
-
-# Run the command on container startup 
-CMD cron && tail -f /var/log/cron.log
+CMD ["/usr/sbin/crond", "-f", "-d", "0"]
