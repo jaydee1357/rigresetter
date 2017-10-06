@@ -34,6 +34,8 @@ def checkRig(token, request):
     else:
         result = "ACTIVE"
     return (result)
+
+
 def getDeviceID(token, rigname):
     getdevicesData = {"method": "getDeviceList"}
     r = requests.post(url + '?token=' + token, data=json.dumps(getdevicesData))
@@ -57,6 +59,19 @@ def genRequest(deviceID, request):
                 }
     req = commands[request]
     return ({"method": "passthrough", "params": {"deviceId": deviceID, "requestData": req}})
+
+
+def getRigHashrate():
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((host, port))
+    s.send('{"id":0,"jsonrpc":"2.0","method":"miner_getstat1"}'.encode("utf-8"))
+    j=s.recv(2048)
+    s.close()
+    resp=json.loads(j.decode("utf-8"))
+    resp=resp['result']
+    hashes = int(resp[2].split(';')[0])
+    return(hashes)
+
 
 print(str(datetime.datetime.now()) + " --> " + "Requesting User Token")
 myToken = getToken(username, password, UUID)
@@ -105,4 +120,3 @@ if myRigStatus is "DOWN":
         print(str(datetime.datetime.now()) + " --> " + "Turning TP-Link Adapter ON")
         req = genRequest(myDeviceID, "on")
         res = requests.post(url + '?token=' + myToken, data=json.dumps(req))
-        
