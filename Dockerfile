@@ -7,5 +7,10 @@ RUN touch crontab.tmp \
     && rm -rf crontab.tmp
 
 ADD rig-resetter.py /etc/rigresetter/rig-resetter.py
+ADD config.json /etc/rigresetter/config.json
+
+RUN chmod +x /etc/rigresetter/rig-resetter.py
+
+VOLUME /etc/rigresetter
 
 CMD ["/usr/sbin/crond", "-f", "-d", "0"]
