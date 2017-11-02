@@ -18,6 +18,4 @@ RUN ls -la /root/
 
 RUN ls -la /root/rigresetter
 
-RUN chmod +x /root/rigresetter/rig-resetter.py
-
 CMD ["/usr/sbin/crond", "-f", "-d", "0"]
