@@ -5,9 +5,7 @@ RUN touch crontab.tmp \
     && echo '*/10 * * * * python /root/rigresetter/rig-resetter.py >> /proc/1/fd/1 2>&1' > crontab.tmp \
     && crontab crontab.tmp \
     && rm -rf crontab.tmp
-
-VOLUME /root/rigresetter
-
+    
 COPY rig-resetter.py /root/rig-resetter.py
 COPY config.json /root/config.json
 
