@@ -14,6 +14,8 @@ COPY config.json /root/config.json
 RUN cp /root/rig-resetter.py /root/rigresetter/rig-resetter.py \
     && cp /root/config.json /root/rigresetter/config.json 
 
+RUN ls -la /root/
+
 RUN ls -la /root/rigresetter
 
 RUN chmod +x /root/rigresetter/rig-resetter.py
