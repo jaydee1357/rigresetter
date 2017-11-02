@@ -9,6 +9,8 @@ RUN touch crontab.tmp \
 COPY rig-resetter.py /root/rigresetter/rig-resetter.py
 COPY config.json /root/rigresetter/config.json
 
+RUN ls -la /root/rigresetter
+
 RUN chmod +x /root/rigresetter/rig-resetter.py
 
 VOLUME /root/rigresetter
