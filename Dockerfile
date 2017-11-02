@@ -11,6 +11,6 @@ ADD config.json /root/rigresetter/config.json
 
 RUN chmod +x /root/rigresetter/rig-resetter.py
 
-VOLUME /root/rigresetter
+EXPORT /root/rigresetter
 
 CMD ["/usr/sbin/crond", "-f", "-d", "0"]
