@@ -8,8 +8,11 @@ RUN touch crontab.tmp \
 
 VOLUME /root/rigresetter
 
-COPY rig-resetter.py /root/rigresetter/rig-resetter.py
-COPY config.json /root/rigresetter/config.json
+COPY rig-resetter.py /root/rig-resetter.py
+COPY config.json /root/config.json
+
+RUN cp /root/rig-resetter.py /root/rigresetter/rig-resetter.py \
+    && cp /root/config.json /root/rigresetter/config.json 
 
 RUN ls -la /root/rigresetter
 
