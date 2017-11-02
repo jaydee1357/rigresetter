@@ -3,7 +3,7 @@
   "tp_link_username": "abc@xyz.com",
   "tp_link_password": "abcxyz",
   
-  rigs: [
+  "rigs": [
     {
       "miner": "claymore",
       "rig_name": "amd",
