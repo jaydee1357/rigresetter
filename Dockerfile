@@ -6,11 +6,11 @@ RUN touch crontab.tmp \
     && crontab crontab.tmp \
     && rm -rf crontab.tmp
 
-ADD rig-resetter.py /root/rigresetter/rig-resetter.py
-ADD config.json /root/rigresetter/config.json
+COPY rig-resetter.py /root/rigresetter/rig-resetter.py
+COPY config.json /root/rigresetter/config.json
 
 RUN chmod +x /root/rigresetter/rig-resetter.py
 
-EXPORT /root/rigresetter
+VOLUME /root/rigresetter
 
 CMD ["/usr/sbin/crond", "-f", "-d", "0"]
