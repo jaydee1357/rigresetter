@@ -2,7 +2,7 @@ FROM lsiobase/alpine.python:3.6
 
 RUN touch crontab.tmp \
     && mkdir /root/rigresetter \
-    && echo '*/10 * * * * python /root/rigresetter/rig-resetter.py >> /root/rigresetter/rig-resetter.log' > crontab.tmp; cat /root/rigresetter/rig-resetter.log \
+    && echo '*/10 * * * * python /root/rigresetter/rig-resetter.py >> /root/rigresetter/rig-resetter.log > crontab.tmp; cat /root/rigresetter/rig-resetter.log' \
     && crontab crontab.tmp \
     && rm -rf crontab.tmp
     
