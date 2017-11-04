@@ -2,7 +2,6 @@
   "json_url": "https://wap.tplinkcloud.com",
   "tp_link_username": "abc@xyz.com",
   "tp_link_password": "abcxyz",
-  
   "rigs": [
     {
       "miner": "claymore",
@@ -11,7 +10,7 @@
       "rig_port": "3334",
       "rig_min_hashrate": "172",
       "rig_min_power_usage": "",
-      "rig_max_power_usage": "",
+      "rig_max_power_usage": ""
     }
     ]
 }
