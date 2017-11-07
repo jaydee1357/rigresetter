@@ -1,16 +1,36 @@
 {
+  "UUID": "XXXXXXXXX",
   "json_url": "https://wap.tplinkcloud.com",
-  "tp_link_username": "abc@xyz.com",
-  "tp_link_password": "abcxyz",
+  "tp_link_username": "xyz@abc.com",
+  "tp_link_password": "xyzabc",
+  "check_delay": 30,
   "rigs": [
     {
       "miner": "claymore",
-      "rig_name": "amd",
+      "rig_name": "AMD-Rig1",
       "rig_ip": "192.168.1.100",
-      "rig_port": "3334",
-      "rig_min_hashrate": "172",
-      "rig_min_power_usage": "",
-      "rig_max_power_usage": ""
+      "rig_port": 3334,
+      "rig_min_hashrate": 160,
+      "rig_min_power_usage": 880,
+      "rig_max_power_usage": 950
+    },
+    {
+      "miner": "claymore",
+      "rig_name": "Nvidia-Rig2",
+      "rig_ip": "192.168.1.101",
+      "rig_port": 3335,
+      "rig_min_hashrate": 160,
+      "rig_min_power_usage": 740,
+      "rig_max_power_usage": 860
+    },
+    {
+      "miner": "claymore",
+      "rig_name": "Nvidia-Rig3",
+      "rig_ip": "192.168.1.102",
+      "rig_port": 3336,
+      "rig_min_hashrate": 165,
+      "rig_min_power_usage": 350,
+      "rig_max_power_usage": 460
     }
     ]
 }
