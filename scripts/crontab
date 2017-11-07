@@ -1,1 +1,2 @@
-
+*/15 * * * * python /etc/rigresetter/rig-resetter.py >> /var/log/cron/cron.log 2>&1
+# An empty line is required at the end of this file for a valid cron file.
