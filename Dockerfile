@@ -1,9 +1,9 @@
 FROM lsiobase/alpine.python:3.6
 
-COPY scripts/crontab /tmp/crontab \
+COPY scripts/crontab crontab.tmp \
      && scripts/start.sh /start.sh
 
-RUN crontab /tmp/crontab \
-    && rm -rf /tmpcrontab
+RUN crontab crontab.tmp \
+    && rm -rf crontab.tmp
 
 CMD ["/start.sh"]
