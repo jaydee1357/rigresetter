@@ -1,5 +1,6 @@
 FROM lsiobase/alpine.python:3.6
 
-RUN apk update && apk upgrade && \
-    apk add --no-cache bash git openssh
+COPY scripts/crontab /tmp/crontab
 
+RUN crontab /tmp/crontab \
+    && rm -rf /tmpcrontab
